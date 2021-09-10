@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+#wrap{
+	height: 1200px;
+	margin: auto;
+}
+.main-section{
+	height:1000px;
+	width:1000px;
+}
+
+.img-container{
+	width:500px;	
+}
+
+.register-img{
+	position:absolute;
+	left:550px;
+}
+
+.login-container{
+	width:500px;
+}
+
+.login-form-box{
+	height:450px;
+}
+
+.login-form-box-elements{
+	width:500px;
+}
+
+.signup-link-box{
+	height:150px;
+}
+
+.app-store-btn{
+	width:200px;
+	height:60px;
+}
+
+.google-play-btn{
+	width:200px;
+	height:60px;
+}

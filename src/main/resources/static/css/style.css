@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 #wrap{
 	height: 1200px;
 	margin: auto;
@@ -18,15 +19,15 @@
 	left:550px;
 }
 
-.login-container{
+.signin-container{
 	width:500px;
 }
 
-.login-form-box{
+.signin-form-box{
 	height:450px;
 }
 
-.login-form-box-elements{
+.signin-form-box-elements{
 	width:500px;
 }
 
@@ -42,4 +43,18 @@
 .google-play-btn{
 	width:200px;
 	height:60px;
+}
+
+.signup-form-box{
+	height:600px;
+}
+
+.signin-link-box{
+	height:150px;
+}
+
+#isDuplicate-btn{
+	position:relative;
+	left:15px;
+	height:38px;
 }

@@ -8,5 +8,9 @@
 </head>
 <body>
 
+<footer class="text-center">
+				<small>© 2021. SNSCopy. all rights reserved.</small>
+			</footer>
+
 </body>
 </html>

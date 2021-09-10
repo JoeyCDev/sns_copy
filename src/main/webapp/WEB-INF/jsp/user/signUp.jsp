@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SNScopy - 로그인</title>
+<title>SNScopy - 회원가입</title>
 <!-- bootstrap CDN link -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -32,27 +32,32 @@
 
 	<div id="wrap">
 		<div class="main-section-container d-flex justify-content-center mt-5">
-			<section class="main-section d-flex">
-				<div class="img-container">
-					<img src="/static/images/register_img.jpg" height="700px" width="600px" class="register-img"/>
+			<section class="main-section">
+				<div class="signup-form-box border p-4 d-flex align-items-center justify-content-center">
+					<div class="signup-form-box-elements">
+						<h1 class="text-center mb-5">Instagram</h1>
+						<div class="signup-form-box-description text-center text-secondary mb-5">
+						친구들의 사진과 동영상을 보려면 <br>가입하세요.
+						</div>
+						<form>
+							<input type="text" class="form-control mb-4" placeholder="이메일 주소"/>
+							<input type="text" class="form-control mb-4" placeholder="성명"/>
+							<div class="id-check-container d-flex">
+							<input type="text" class="form-control mb-4 col-12" placeholder="사용자 이름"/>
+							<button id ="isDuplicate-btn" class="btn btn-primary">중복확인</button>
+							</div>
+							<input type="text" class="form-control mb-4" placeholder="비밀번호"/>
+							<button type="submit" class="btn btn-primary btn-block">가입</button>
+							<br>
+						</form>
+					</div>
 				</div>
-				<div class="signin-container">
-					<div class="signin-form-box border p-4 d-flex align-items-center justify-content-center">
-						<div class="signin-form-box-elements">
-							<h1 class="text-center mb-5">Instagram</h1>
-							<form>
-								<input type="text" class="form-control mb-4" placeholder="사용자 이름"/>
-								<input type="text" class="form-control mb-5" placeholder="비밀번호"/>
-								<button type="submit" class="btn btn-primary btn-block">로그인</button>
-							</form>
+				<div class="signIn-link-box mt-5 border p-4 d-flex align-items-center justify-content-center">
+						<div class="signIn-link-text">
+							계정이 없으신가요? <a href="/user/signin_view" class="ml-2">로그인</a>
 						</div>
-					</div>
-					<div class="signup-link-box mt-5 border p-4 d-flex align-items-center justify-content-center">
-						<div class="signup-link-text">
-							계정이 없으신가요? <a href="/user/signup_view" class="ml-2">가입하기</a>
-						</div>
-					</div>
-					<div class="app-download-container mt-5">
+				</div>
+				<div class="app-download-container mt-5">
 						<div class="text-center">앱을 다운로드하세요.</div>
 						<div class="app-download-btns d-flex justify-content-center">
 							<div class="app-store-btn mt-3">
@@ -67,14 +72,11 @@
 								</a>
 							</div>
 						</div>
-					</div>
 				</div>
-				</section>
-			</div>
-			
-			<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
-			
+			</section>
 		</div>
-		
+		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
+	</div>
+
 </body>
 </html>

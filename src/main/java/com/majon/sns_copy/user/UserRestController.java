@@ -59,4 +59,22 @@ public class UserRestController {
 		return resultMap;
 		
 	}
+	
+	@GetMapping("/isDuplicateBySubmit")
+	@ResponseBody
+	public Map<String,Boolean>isDuplicateBySubmit(@RequestParam("loginId")String loginId){
+		
+		Boolean isDuplicate = userBO.isDuplicateId(loginId);
+		
+		Map<String,Boolean>resultMap = new HashMap<>();
+		
+		if(isDuplicate) {
+			resultMap.put("isDuplicate", true);
+		}else {
+			resultMap.put("isDuplicate", false);
+		}
+		
+		return resultMap;
+		
+	}
 }

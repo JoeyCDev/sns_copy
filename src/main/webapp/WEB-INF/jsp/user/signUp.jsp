@@ -92,8 +92,9 @@
 			var isDuplicateId = true;
 			
 			//중복확인
-			$("#isDuplicateBtn").on("click",function(){
+			$("#isDuplicateBtn").on("click",function(e){
 				
+				e.preventDefault();
 				
 				var loginId = $("#loginIdInput").val().trim();
 				
@@ -174,24 +175,41 @@
 				}
 				
 				$.ajax({
-					
-					type:"post",
-					url:"/user/sign_up",
-					data:{"email":email,"name":name,"loginId":loginId,"password":password},
+					type:"get",
+					url:"/user/isDuplicateBySubmit",
+					data:{"loginId":loginId},
 					success:function(data){
-						if(data.result == "success"){
-							location.href = "/user/signin_view";
+						if(data.isDuplicate){
+							alert("사용할 수 없는 아이디입니다. \n아이디 중복확인을 다시해주세요.");
+							isDuplicateId=true;
 						}else{
-							alert("가입실패");
+							isDuplicateId=false;
+							$.ajax({
+								
+								type:"post",
+								url:"/user/sign_up",
+								data:{"email":email,"name":name,"loginId":loginId,"password":password},
+								success:function(data){
+									if(data.result == "success"){
+										location.href = "/user/signin_view";
+									}else{
+										alert("가입실패");
+									}
+								},
+								error:function(e){
+									alert("error");
+								}
+								
+							});
 						}
 					},
-					error:function(e){
+					error:function(data){
 						alert("error");
 					}
-					
 				});
 			});
-			
+				
+				
 			
 		});
 	</script>

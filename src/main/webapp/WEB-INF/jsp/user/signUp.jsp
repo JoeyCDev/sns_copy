@@ -39,14 +39,21 @@
 						<div class="signup-form-box-description text-center text-secondary mb-5">
 						친구들의 사진과 동영상을 보려면 <br>가입하세요.
 						</div>
-						<form>
-							<input type="text" class="form-control mb-4" placeholder="이메일 주소"/>
-							<input type="text" class="form-control mb-4" placeholder="성명"/>
-							<div class="id-check-container d-flex">
-							<input type="text" class="form-control mb-4 col-12" placeholder="사용자 이름"/>
-							<button id ="isDuplicate-btn" class="btn btn-primary">중복확인</button>
+						<form id="signUpForm">
+							<input type="text" class="form-control mb-4" placeholder="이메일 주소" name="email" id="emailInput"/>
+							<input type="text" class="form-control mb-4" placeholder="성명" name="name" id="nameInput"/>
+							<div class="id-check-container mb-4">
+							<div class="d-flex">
+								<input type="text" class="id-input-box form-control col-12" placeholder="아이디" name="loginId" id="loginIdInput"/>
+								<button id ="isDuplicateBtn" class="btn btn-info">중복확인</button>
 							</div>
-							<input type="text" class="form-control mb-4" placeholder="비밀번호"/>
+							<div class="hidden-msg-container">
+								<small class="text-danger d-none" id="duplicate-msg">중복된 id입니다</small>
+								<small class="text-success d-none" id="non-duplicate-msg">사용 할 수 있는 id입니다</small>
+							</div>
+							</div>
+							<input type="password" class="form-control mb-4" placeholder="비밀번호" name="password" id="passwordInput"/>
+							<input type="password" class="form-control mb-4" placeholder="비밀번호 확인" name="passwordCheck" id="passwordCheckInput"/>
 							<button type="submit" class="btn btn-primary btn-block">가입</button>
 							<br>
 						</form>
@@ -77,6 +84,117 @@
 		</div>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 	</div>
+	
+	<script>
+		$(document).ready(function(){
+			
+			var isDuplicateBtnChecked = false;
+			var isDuplicateId = true;
+			
+			//중복확인
+			$("#isDuplicateBtn").on("click",function(){
+				
+				
+				var loginId = $("#loginIdInput").val().trim();
+				
+				if(loginId==null||loginId==""){
+					alert("아이디를 입력하세요.");
+					return;
+				}
+				
+				$.ajax({
+					
+					type:"get",
+					url:"/user/isDuplicate",
+					data:{"loginId":loginId},
+					success:function(data){
+						isDuplicateBtnChecked = true;
+						if(data.isDuplicate){
+							$("#duplicate-msg").removeClass("d-none");
+							$("#non-duplicate-msg").addClass("d-none");
+							isDuplicateId = true;
+						}else{
+							$("#non-duplicate-msg").removeClass("d-none");
+							$("#duplicate-msg").addClass("d-none");
+							isDuplicateId = false;
+						}
+						
+					},
+					error:function(e){
+						alert("error");
+					}
+					
+				});
+				
+			});
+			//가입
+			$("#signUpForm").on("submit",function(e){
+				
+				e.preventDefault();
+				
+				
+				var email = $("#emailInput").val().trim();
+				var name = $("#nameInput").val().trim();
+				var loginId = $("#loginIdInput").val().trim();
+				var password = $("#passwordInput").val().trim();
+				var passwordCheck = $("#passwordCheckInput").val().trim();
+				
+				
+				if(email==null||email==""){
+					alert("이메일을 입력하세요.");
+					return;
+				}
+				if(name==null||name==""){
+					alert("이름을 입력하세요.");
+					return;
+				}
+				if(loginId==null||loginId==""){
+					alert("아이디를 입력하세요.");
+					return;
+				}
+				if(password==null||password==""){
+					alert("비밀번호를 입력하세요.");
+					return;
+				}
+				if(passwordCheck==null||passwordCheck==""){
+					alert("비밀번호 확인을 입력하세요.");
+					return;
+				}
+				if(password!=passwordCheck){
+					alert("비밀번호가 일치하지 않습니다");
+					return;
+				}
+				if(!isDuplicateBtnChecked){
+					alert("아이디 중복확인을 해주세요.");
+					return;
+				}
+				if(isDuplicateId){
+					alert("중복되지 않은 아이디를 입력하세요.");
+					return;
+				}
+				
+				$.ajax({
+					
+					type:"post",
+					url:"/user/sign_up",
+					data:{"email":email,"name":name,"loginId":loginId,"password":password},
+					success:function(data){
+						if(data.result == "success"){
+							location.href = "/user/signin_view";
+						}else{
+							alert("가입실패");
+						}
+					},
+					error:function(e){
+						alert("error");
+					}
+					
+				});
+			});
+			
+			
+		});
+	</script>
 
 </body>
 </html>

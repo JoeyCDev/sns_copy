@@ -34,14 +34,14 @@
 		<div class="main-section-container d-flex justify-content-center mt-5">
 			<section class="main-section d-flex">
 				<div class="img-container">
-					<img src="/static/images/register_img.jpg" height="700px" width="600px" class="register-img"/>
+					<img src="/static/images/instagram_logo.jpg" height="700px" class="register-img"/>
 				</div>
 				<div class="signin-container">
 					<div class="signin-form-box border p-4 d-flex align-items-center justify-content-center">
 						<div class="signin-form-box-elements">
 							<h1 class="text-center mb-5">Instagram</h1>
 							<form>
-								<input type="text" class="form-control mb-4" placeholder="사용자 이름"/>
+								<input type="text" class="form-control mb-4" placeholder="아이디"/>
 								<input type="text" class="form-control mb-5" placeholder="비밀번호"/>
 								<button type="submit" class="btn btn-primary btn-block">로그인</button>
 							</form>

@@ -16,7 +16,7 @@
 
 .register-img{
 	position:absolute;
-	left:550px;
+	left:400px;
 }
 
 .signin-container{
@@ -51,6 +51,13 @@
 
 .signin-link-box{
 	height:150px;
+}
+
+.id-check-container{
+	height:42px;
+}
+.id-input-box{
+	height:38px;
 }
 
 #isDuplicate-btn{

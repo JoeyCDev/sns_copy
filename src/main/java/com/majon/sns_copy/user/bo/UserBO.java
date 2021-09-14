@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.majon.sns_copy.common.EncryptUtils;
+import com.majon.sns_copy.model.User;
 import com.majon.sns_copy.user.dao.UserDAO;
+
+
 
 @Service
 public class UserBO {
@@ -12,9 +15,12 @@ public class UserBO {
 	@Autowired
 	private UserDAO userDAO;
 	
+
+	
 	public int insertUser(String email, String name, String loginId, String password) {
 		
 		String encryptPassword = EncryptUtils.md5(password);
+		
 		
 		return userDAO.insertUser(email, name, loginId, encryptPassword);
 		
@@ -29,6 +35,14 @@ public class UserBO {
 		}else {
 			return false;
 		}
+		
+	}
+	
+	public User selectUser(String loginId, String password) {
+		
+		String encryptPassword = EncryptUtils.md5(password);
+		
+		return userDAO.selectUserByIdAndPwd(loginId, encryptPassword);
 		
 	}
 	

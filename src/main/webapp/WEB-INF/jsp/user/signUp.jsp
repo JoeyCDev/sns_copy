@@ -91,6 +91,16 @@
 			var isDuplicateBtnChecked = false;
 			var isDuplicateId = true;
 			
+			//중복체크 다시하기
+			$("#loginIdInput").on("keyup",function(e){
+				
+				e.preventDefault();
+				
+				isDuplicateBtnChecked = false;
+				isDuplicateId = true;
+				
+			});
+			
 			//중복확인
 			$("#isDuplicateBtn").on("click",function(e){
 				
@@ -134,16 +144,6 @@
 			$("#signUpForm").on("submit",function(e){
 				
 				e.preventDefault();
-				
-				$("#loginIdInput").on("keyup",function(e){
-					
-					e.preventDefault();
-					
-					var isDuplicateBtnChecked = false;
-					var isDuplicateId = true;
-					
-				});
-				
 				
 				var email = $("#emailInput").val().trim();
 				var name = $("#nameInput").val().trim();

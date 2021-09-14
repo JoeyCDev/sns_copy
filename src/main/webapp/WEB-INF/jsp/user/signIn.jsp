@@ -31,6 +31,7 @@
 <body>
 
 	<div id="wrap">
+		<c:import url="/WEB-INF/jsp/include/header.jsp"/>
 		<div class="main-section-container d-flex justify-content-center mt-5">
 			<section class="main-section d-flex">
 				<div class="img-container">
@@ -40,9 +41,9 @@
 					<div class="signin-form-box border p-4 d-flex align-items-center justify-content-center">
 						<div class="signin-form-box-elements">
 							<h1 class="text-center mb-5">Instagram</h1>
-							<form>
-								<input type="text" class="form-control mb-4" placeholder="아이디"/>
-								<input type="text" class="form-control mb-5" placeholder="비밀번호"/>
+							<form id="loginForm">
+								<input type="text" class="form-control mb-4" placeholder="아이디" name="loginId" id="loginIdInput"/>
+								<input type="text" class="form-control mb-5" placeholder="비밀번호" name="password" id="passwordInput"/>
 								<button type="submit" class="btn btn-primary btn-block">로그인</button>
 							</form>
 						</div>
@@ -75,6 +76,45 @@
 			<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 			
 		</div>
+		
+		<script>
+			$(document).ready(function(){
+				$("#loginForm").on("submit",function(e){
+					
+					e.preventDefault();
+					
+					var loginId = $("#loginIdInput").val().trim();
+					var password = $("#passwordInput").val().trim();
+					
+					if(loginId==null || loginId==""){
+						alert("아이디를 입력하세요.");
+						return;
+					}
+					if(password==null || password==""){
+						alert("비밀번호를 입력하세요.");
+						return;
+					}
+					
+					$.ajax({
+						
+						type:"post",
+						url:"/user/sign_in",
+						data:{"loginId":loginId,"password":password},
+						success:function(data){
+							if(data.result=="success"){
+								alert("로그인 성공.");
+							}else{
+								alert("아이디랑 비밀번호를 확인해주세요.")
+							}
+						},
+						error:function(e){
+							alert("error");
+						}
+						
+					});
+				});
+			});
+		</script>
 		
 </body>
 </html>

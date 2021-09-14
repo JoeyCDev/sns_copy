@@ -32,7 +32,27 @@
  			count(*)
  		FROM 
  			`user`
- 		WHERE `loginId` = #{loginId}
+ 		WHERE 
+ 			`loginId` = #{loginId}
+ 	
+ 	</select>
+ 	
+ 	<select id="selectUserByIdAndPwd" resultType="com.majon.sns_copy.model.User" parameterType="map">
+ 	
+ 		SELECT
+ 			`id`
+ 			,`loginId`
+ 			,`name`
+ 			,`password`
+ 			,`email`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`user`
+ 		WHERE
+ 			`loginId` = #{loginId}
+ 			AND
+ 			`password` = #{password}
  	
  	</select>
  

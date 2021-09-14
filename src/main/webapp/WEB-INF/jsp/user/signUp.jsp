@@ -128,10 +128,21 @@
 				});
 				
 			});
+			
+			
 			//가입
 			$("#signUpForm").on("submit",function(e){
 				
 				e.preventDefault();
+				
+				$("#loginIdInput").on("keyup",function(e){
+					
+					e.preventDefault();
+					
+					var isDuplicateBtnChecked = false;
+					var isDuplicateId = true;
+					
+				});
 				
 				
 				var email = $("#emailInput").val().trim();
@@ -174,7 +185,7 @@
 					return;
 				}
 				
-				$.ajax({
+				/* $.ajax({
 					type:"get",
 					url:"/user/isDuplicateBySubmit",
 					data:{"loginId":loginId},
@@ -184,7 +195,7 @@
 							isDuplicateId=true;
 						}else{
 							isDuplicateId=false;
-							$.ajax({
+							*/ $.ajax({
 								
 								type:"post",
 								url:"/user/sign_up",
@@ -201,12 +212,12 @@
 								}
 								
 							});
-						}
+						/* }
 					},
 					error:function(data){
 						alert("error");
 					}
-				});
+				}); */
 			});
 				
 				

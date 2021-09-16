@@ -42,8 +42,8 @@
 						<div class="signin-form-box-elements">
 							<h1 class="text-center mb-5">Instagram</h1>
 							<form id="loginForm">
-								<input type="text" class="form-control mb-4" placeholder="아이디" name="loginId" id="loginIdInput"/>
-								<input type="text" class="form-control mb-5" placeholder="비밀번호" name="password" id="passwordInput"/>
+								<input type="text" class="form-control mb-4" placeholder="아이디" id="loginIdInput"/>
+								<input type="password" class="form-control mb-5" placeholder="비밀번호" id="passwordInput"/>
 								<button type="submit" class="btn btn-primary btn-block">로그인</button>
 							</form>
 						</div>
@@ -102,7 +102,8 @@
 						data:{"loginId":loginId,"password":password},
 						success:function(data){
 							if(data.result=="success"){
-								alert("로그인 성공.");
+								alert("로그인 성공");
+								location.reload();
 							}else{
 								alert("아이디랑 비밀번호를 확인해주세요.")
 							}

@@ -11,7 +11,7 @@
 <header>
 	<div class="d-flex justify-content-end mr-3">
 		<c:if test="${not empty userName }">
-			${userName } <b class="ml-3">로그아웃</b>
+			<b>${userName }</b>님 <a href="/user/sign_out" class="ml-3"><b>로그아웃</b></a>
 		</c:if>
 	</div>
 </header>

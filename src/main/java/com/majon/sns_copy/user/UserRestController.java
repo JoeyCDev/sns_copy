@@ -25,7 +25,6 @@ public class UserRestController {
 	private UserBO userBO;
 
 	@PostMapping("/sign_up")
-	@ResponseBody
 	public Map<String,String> signUp(
 			@RequestParam("email") String email
 			,@RequestParam("name") String name
@@ -47,7 +46,6 @@ public class UserRestController {
 	
 	
 	@GetMapping("/isDuplicate")
-	@ResponseBody
 	public Map<String,Boolean>isDuplicateId(@RequestParam("loginId")String loginId){
 		
 		Boolean isDuplicate = userBO.isDuplicateId(loginId);
@@ -86,7 +84,6 @@ public class UserRestController {
 	*/
 	
 	@PostMapping("/sign_in")
-	@ResponseBody
 	public Map<String,String>signIn(
 			@RequestParam("loginId") String loginId
 			,@RequestParam("password") String password

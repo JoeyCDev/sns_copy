@@ -40,11 +40,11 @@
 						친구들의 사진과 동영상을 보려면 <br>가입하세요.
 						</div>
 						<form id="signUpForm">
-							<input type="text" class="form-control mb-4" placeholder="이메일 주소" name="email" id="emailInput"/>
-							<input type="text" class="form-control mb-4" placeholder="성명" name="name" id="nameInput"/>
+							<input type="text" class="form-control mb-4" placeholder="이메일 주소" id="emailInput"/>
+							<input type="text" class="form-control mb-4" placeholder="성명" id="nameInput"/>
 							<div class="id-check-container mb-4">
 							<div class="d-flex">
-								<input type="text" class="id-input-box form-control col-12" placeholder="아이디" name="loginId" id="loginIdInput"/>
+								<input type="text" class="id-input-box form-control col-12" placeholder="아이디" id="loginIdInput"/>
 								<button id ="isDuplicateBtn" class="btn btn-info">중복확인</button>
 							</div>
 							<div class="hidden-msg-container">
@@ -52,8 +52,8 @@
 								<small class="text-success d-none" id="non-duplicate-msg">사용 할 수 있는 id입니다</small>
 							</div>
 							</div>
-							<input type="password" class="form-control mb-4" placeholder="비밀번호" name="password" id="passwordInput"/>
-							<input type="password" class="form-control mb-4" placeholder="비밀번호 확인" name="passwordCheck" id="passwordCheckInput"/>
+							<input type="password" class="form-control mb-4" placeholder="비밀번호" id="passwordInput"/>
+							<input type="password" class="form-control mb-4" placeholder="비밀번호 확인" id="passwordCheckInput"/>
 							<button type="submit" class="btn btn-primary btn-block">가입</button>
 							<br>
 						</form>

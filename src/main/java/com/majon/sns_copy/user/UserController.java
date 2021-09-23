@@ -24,11 +24,10 @@ public class UserController {
 		@GetMapping("/sign_out")
 		public String signOut(HttpServletRequest request) {
 			HttpSession session = request.getSession();
-			session.removeAttribute("userLoginId");
+			session.removeAttribute("userId");
 			session.removeAttribute("userName");
 			
 			return "redirect:/user/signin_view";
-			
 		}
 		
 		

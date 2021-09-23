@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.majon.sns_copy.feed.dao.FeedDAO">
+ 
+ 	<insert id="insertPost" parameterType="map">
+ 		INSERT INTO `feed`
+ 		(
+ 			`userId`
+ 			,`userName`
+ 			,`content`
+ 			,`imagePath`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)VALUES(
+ 			#{userId}
+ 			,#{userName}
+ 			,#{content}
+ 			,#{imagePath}
+ 			,now()
+ 			,now()
+ 		)
+ 	
+ 	</insert>
+ 	
+ 	<select id="selectPost" parameterType="map" resultType="com.majon.sns_copy.model.Feed">
+ 		SELECT 
+ 			`id`
+ 			,`userId`
+ 			,`userName`
+ 			,`content`
+ 			,`imagePath`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`feed`
+ 		ORDER BY
+ 			`createdAt` DESC;
+ 	</select>
+ 
+ </mapper>

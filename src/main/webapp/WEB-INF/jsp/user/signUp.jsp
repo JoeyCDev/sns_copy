@@ -35,7 +35,7 @@
 			<section class="main-section">
 				<div class="signup-form-box border p-4 d-flex align-items-center justify-content-center">
 					<div class="signup-form-box-elements">
-						<h1 class="text-center mb-5">Instagram</h1>
+						<h1 class="text-center mb-5">Monstagram</h1>
 						<div class="signup-form-box-description text-center text-secondary mb-5">
 						친구들의 사진과 동영상을 보려면 <br>가입하세요.
 						</div>

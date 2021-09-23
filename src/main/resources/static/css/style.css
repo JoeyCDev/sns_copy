@@ -5,11 +5,49 @@
 	height: 1200px;
 	margin: auto;
 }
+hr{
+	border: 1px solid #d3d3d3;
+}
+.search-box-container{
+	position:relative;
+}
+.search-icon{
+	position:absolute;
+	left:150px;
+}
+.search-box{
+	width:400px;
+	background-color:#d3d3d3;
+}
+.search-box:hover{
+	background-color:#d5d0ff;
+}
+#homeBtn{
+	background:none;
+	border:none;
+}
+.homeBtnLink{
+	color:inherit;
+}
+.likeBtnLink{
+	color:inherit;
+}
+#likeBtn{
+	background:none;
+	border:none;
+}
+.saveBtnLink{
+	color:inherit;
+}
+#saveBtn{
+	background:none;
+	border:none;
+}
+
 .main-section{
 	height:1000px;
 	width:1000px;
 }
-
 .img-container{
 	width:500px;	
 }
@@ -64,4 +102,43 @@
 	position:relative;
 	left:15px;
 	height:38px;
+}
+
+.post-section-container{
+	width:700px;
+	border-radius:25%;
+	
+}
+
+.textarea-container{
+	position:relative;
+	width:500px;
+}
+.textarea-container > #fileInput{
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+.textarea-container > #postBtn{
+	position:absolute;
+	bottom:0;
+	right:0;
+}
+
+.feed-container{
+	width:700px;
+}
+.feed-elements{
+	width:700px;
+}
+.comment-section{
+	left:0;
+}
+.emojiLink{
+	color:inherit;
+}
+.comment-write-section{
+	border:none;
+	width:500px;
 }

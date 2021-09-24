@@ -25,6 +25,9 @@
 				<c:if test="${not empty userName }">
 					<b>${userName }</b>님 <a href="/user/sign_out" class="ml-3"><b>로그아웃</b></a>
 				</c:if>
+				<c:if test="${empty userName }">
+					<b><a href="/user/signin_view" class="ml-3"><b>로그인</b></a>
+				</c:if>
 			</div>
 		</div>
 	</div>

@@ -47,4 +47,26 @@ public class FeedRestController {
 		
 	}
 	
+	@PostMapping("/comment")
+	public Map<String,String>postComment(
+			@RequestParam("feedId")int feedId
+			,@RequestParam("content")String content
+			,HttpServletRequest request){
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		String userName = (String)session.getAttribute("userName");
+		
+		int count = feedBO.addComment(userId, feedId, userName, content);
+		
+		Map<String,String>resultMap = new HashMap<>();		
+		if(count==1) {
+			resultMap.put("result", "success");
+		}else {
+			resultMap.put("result", "fail");
+		}
+		return resultMap;
+		
+	}
+	
 }

@@ -34,9 +34,10 @@
 
 	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/headerMain.jsp"/>
-		<c:if test="${not empty userName }">
 		<div class="main-section-container d-flex justify-content-center mt-5 mb-5">
 			<div class="horizontal-align-div">
+			<!-- 비로그인 일경우 해당 섹션은 보이질 않음 -->
+			<c:if test="${not empty userName }">
 			<div class="post-section-container border p-3 text-center d-flex justify-content-center">
 				<div class="post-elements">
 					<h5 class="mb-3">게시글 올리기</h5>
@@ -47,6 +48,7 @@
 					</div>
 				</div>
 			</div>
+				</c:if>
 				<c:forEach var="printFeed" items="${printFeedList }" varStatus="status">
 				<div class="feed-container border rounded p-3 text-center d-flex justify-content-center mt-5">
 					<div class="feed-elements">
@@ -61,46 +63,51 @@
 						</div>
 						<div class="feed-img mt-3 mb-3">
 							<c:if test="${not empty printFeed.imagePath }">
-								<img src="${printFeed.imagePath }" width="600px" height="600px"/>
+								<img src="${printFeed.imagePath }" width="699px" height="600px"/>
 							</c:if>
 						</div>
-						<div class="feed-bottom">
+						<div class="feed-bottom ml-2 mr-2">
 							<div class="btn-container d-flex justify-content-between">
 								<div class="like-button-container"><button type="button" id="likeBtn"><a href="#" class= "likeBtnLink"><i class="far fa-heart fa-2x"></i></a></button></div>
 								<div class="save-button-container"><button type="button" id="saveBtn"><a href="#" class= "saveBtnLink"><i class="far fa-save fa-2x"></i></a></button></div>
 							</div>
-							<div class="comment-container d-flex justify-content-start mt-3 ml-2">
+							<div class="comment-container d-flex justify-content-start mt-2 ml-2">
 								<div class="horizontal-align">
-									<div class="like-comment"><a href="#"><i class="far fa-user"></i></a><b> ID님</b> <a href="#">외 100명</a> 이 좋아합니다.</div>
+									<div class="like-count font-weight-bold text-left mb-2">좋아요 10개</div>
 									<div class="comment-section d-flex justify-content-start">
 										<div class="horizontal-align">
-											<div class="comments"><b><c:out value="${printFeed.userName }"/></b><c:out value="${printFeed.content }"/>
-												<div class="comment"><b>UserID</b> blah blah...</div>
-												<div class="text-secondary"><fmt:formatDate value="${printFeed.createdAt }" pattern="yyyy-MM-dd HH시 mm분 ss초"/></div>
-											</div>
+											<div class="comments d-flex"><div class="content-userId font-weight-bold mr-2"><c:out value="${printFeed.userName }"/></div><c:out value="${printFeed.content }"/></div>
+											<!-- comment 리스트 뽑기 -->
+												<c:forEach var="printComment" items="${printCommentList }" varStatus="status">
+													<c:if test="${printFeed.id } eq ${printComment.feedId }">
+														<div class="comment d-flex"><div class="comment-userId font-weight-bold mr-2 mb-1"><c:out value="${printComment.userName }"/> </div><c:out value="${printComment.content }"/></div>
+													</c:if>
+												</c:forEach>
+												<div class="text-secondary"><fmt:formatDate value="${printFeed.createdAt }" pattern="yyyy/MM/dd HH시 mm분"/></div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<c:if test="${not empty userName }">
 						<hr>
 						<div class="comment-writing-container d-flex align-items-center justify-content-between">
-							<div class="emoji-container col-1">
+							<div class="emoji-container col-2">
 								<a href="#" class="emojiLink"><i class="far fa-laugh fa-2x"></i></a>
 							</div>
-							<div class="comment-write-container col-10">
-								<input type="text" class="comment-write-section" placeholder="댓글 달기...">
+							<div class="comment-write-container col-8">
+								<input type="text" class="comment-write-section" id="commentInput-${printFeed.id }" placeholder="댓글 달기...">
 							</div>
-							<div class="comment-postBtn-container">
-								<button type="button" id="commentPostBtn" class="btn btn-primary">게시</button>
+							<div class="comment-postBtn-container col-2">
+								<button type="button" data-feed-id="${printFeed.id }" class="commentPostBtn btn btn-primary">게시</button>
 							</div>
 						</div>
+						</c:if>
 					</div>
 				</div>
 				</c:forEach>	
 				</div>
 		</div>
-		</c:if>
 		<c:import url="/WEB-INF/jsp/include/footer.jsp"/>
 			
 	</div>
@@ -149,6 +156,35 @@
 				
 			});
 			
+			$(".commentPostBtn").on("click",function(){
+				
+				var feedId = $(this).data("feed-id");
+				
+				var content = $("#commentInput-" + feedId).val().trim();
+				
+				if(content == null || content == ""){
+					alert("댓글을 입력하세요");	
+				}
+				
+				$.ajax({
+					
+					type:"post",
+					url:"/feed/comment",
+					data:{"feedId":feedId,"content":content},
+					success:function(data){
+						if(data.result=="success"){
+							alert("댓글 등록 성공");
+							location.reload();
+						}else{
+							alert("댓글 등록 실패");
+						}
+					},
+					error:function(e){
+						alert("error");
+					}
+				});
+				
+			});
 		});
 		
 		

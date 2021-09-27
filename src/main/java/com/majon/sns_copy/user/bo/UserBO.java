@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.majon.sns_copy.common.EncryptUtils;
-import com.majon.sns_copy.model.User;
 import com.majon.sns_copy.user.dao.UserDAO;
+import com.majon.sns_copy.user.model.User;
 
 
 

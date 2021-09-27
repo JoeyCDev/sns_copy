@@ -76,13 +76,15 @@
 									<div class="like-count font-weight-bold text-left mb-2">좋아요 10개</div>
 									<div class="comment-section d-flex justify-content-start">
 										<div class="horizontal-align">
+											<!-- 포스팅 content 표기 부분 -->
 											<div class="comments d-flex"><div class="content-userId font-weight-bold mr-2"><c:out value="${printFeed.userName }"/></div><c:out value="${printFeed.content }"/></div>
 											<!-- comment 리스트 뽑기 -->
 												<c:forEach var="printComment" items="${printCommentList }" varStatus="status">
-													<c:if test="${printFeed.id } eq ${printComment.feedId }">
+													<c:if test="${printFeed.id eq printComment.feedId }">
 														<div class="comment d-flex"><div class="comment-userId font-weight-bold mr-2 mb-1"><c:out value="${printComment.userName }"/> </div><c:out value="${printComment.content }"/></div>
 													</c:if>
 												</c:forEach>
+												<!-- 피드 생성 날짜 표기 -->
 												<div class="text-secondary"><fmt:formatDate value="${printFeed.createdAt }" pattern="yyyy/MM/dd HH시 mm분"/></div>
 										</div>
 									</div>
@@ -165,6 +167,8 @@
 				if(content == null || content == ""){
 					alert("댓글을 입력하세요");	
 				}
+				
+				//댓글 등록 
 				
 				$.ajax({
 					

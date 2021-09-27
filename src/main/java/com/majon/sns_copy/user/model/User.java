@@ -1,4 +1,4 @@
-package com.majon.sns_copy.model;
+package com.majon.sns_copy.user.model;
 
 import java.util.Date;
 

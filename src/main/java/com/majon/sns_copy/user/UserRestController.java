@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.majon.sns_copy.model.User;
 import com.majon.sns_copy.user.bo.UserBO;
+import com.majon.sns_copy.user.model.User;
 
 @RestController
 @RequestMapping("/user")

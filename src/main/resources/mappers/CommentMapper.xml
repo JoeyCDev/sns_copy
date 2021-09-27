@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace="com.majon.sns_copy.feed.comment.dao.CommentDAO">
+
+	<insert id="insertComment" parameterType="map">
+	 		INSERT INTO `comment`
+	 		(
+	 			`userId`
+	 			,`feedId`
+	 			,`userName`
+	 			,`content`
+	 			,`createdAt`
+	 			,`updatedAt`
+	 		)VALUES(
+	 			#{userId}
+	 			,#{feedId}
+	 			,#{userName}
+	 			,#{content}
+	 			,now()
+	 			,now()
+	 		)
+	 	</insert>
+	 
+	 	<select id="selectComment" parameterType="map" resultType="com.majon.sns_copy.model.Comment">
+	 		SELECT 
+	 			`id`
+	 			,`userId`
+	 			,`feedId`
+	 			,`userName`
+	 			,`content`
+	 			,`emoji`
+	 			,`createdAt`
+	 			,`updatedAt`
+	 		FROM
+	 			`comment`
+	 		ORDER BY
+	 			`id`;
+	 	</select>
+	 
+</mapper>
+	

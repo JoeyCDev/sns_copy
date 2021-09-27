@@ -40,39 +40,4 @@
  			`id` DESC;
  	</select>
  	
- 	<insert id="insertComment" parameterType="map">
- 		INSERT INTO `comment`
- 		(
- 			`userId`
- 			,`feedId`
- 			,`userName`
- 			,`content`
- 			,`createdAt`
- 			,`updatedAt`
- 		)VALUES(
- 			#{userId}
- 			,#{feedId}
- 			,#{userName}
- 			,#{content}
- 			,now()
- 			,now()
- 		)
- 	</insert>
- 
- 	<select id="selectComment" parameterType="map" resultType="com.majon.sns_copy.model.Comment">
- 		SELECT 
- 			`id`
- 			,`userId`
- 			,`feedId`
- 			,`userName`
- 			,`content`
- 			,`emoji`
- 			,`createdAt`
- 			,`updatedAt`
- 		FROM
- 			`comment`
- 		ORDER BY
- 			`id` DESC;
- 	</select>
- 
  </mapper>

@@ -1,15 +1,14 @@
-package com.majon.sns_copy.model;
+package com.majon.sns_copy.feed.model;
 
 import java.util.Date;
 
-public class Comment {
+public class Feed {
 
 	private int id;
 	private int userId;
-	private int feedId;
 	private String userName;
 	private String content;
-	private String emoji;
+	private String imagePath;
 	private Date createdAt;
 	private Date updatedAt;
 	
@@ -25,12 +24,6 @@ public class Comment {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public int getFeedId() {
-		return feedId;
-	}
-	public void setFeedId(int feedId) {
-		this.feedId = feedId;
-	}
 	public String getUserName() {
 		return userName;
 	}
@@ -43,11 +36,11 @@ public class Comment {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getEmoji() {
-		return emoji;
+	public String getImagePath() {
+		return imagePath;
 	}
-	public void setEmoji(String emoji) {
-		this.emoji = emoji;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	public Date getCreatedAt() {
 		return createdAt;
@@ -61,6 +54,7 @@ public class Comment {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
 	
 	
 }

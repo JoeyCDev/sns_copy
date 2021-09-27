@@ -2,14 +2,14 @@ package com.majon.sns_copy.feed.bo;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.majon.sns_copy.common.FileManagerService;
 import com.majon.sns_copy.feed.dao.FeedDAO;
-import com.majon.sns_copy.model.Comment;
-import com.majon.sns_copy.model.Feed;
+import com.majon.sns_copy.feed.model.Feed;
 
 @Service
 public class FeedBO {
@@ -25,7 +25,8 @@ public class FeedBO {
 			if(imagePath == null) {
 				return 0;
 			}
-			}
+		}
+			
 			
 			return feedDAO.insertPost(userId, userName, content, imagePath);
 		}
@@ -33,12 +34,6 @@ public class FeedBO {
 		return feedDAO.selectPost();
 	}
 	
-	public int addComment(int userId, int feedId, String userName, String content) {
-		return feedDAO.insertComment(userId, feedId, userName, content);
-	}
 	
-	public List<Comment> getComment(){
-		return feedDAO.selectComment();
-	}
 	
 }

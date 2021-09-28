@@ -22,7 +22,7 @@ public class FeedController {
 	public String mainPage(Model model) {
 		
 		
-		List<FeedDetail> detailFeedList = feedBO.getPost();
+		List<FeedDetail> detailFeedList = feedBO.getFeed();
 		
 		if(detailFeedList!=null) {
 			model.addAttribute("detailFeedList", detailFeedList);

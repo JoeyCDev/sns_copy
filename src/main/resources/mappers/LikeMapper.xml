@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.majon.sns_copy.feed.like.dao.LikeDAO">
+ 	
+ 	<insert id="insertLike" parameterType="map">
+ 	
+ 		INSERT INTO `like`
+ 			(
+	 			`userId`
+	 			,`feedId`
+	 			,`userName`
+	 			,`createdAt`
+	 			,`updatedAt`
+ 			)VALUES(
+ 				#{userId}
+ 				,#{feedId}
+ 				,#{userName}
+ 				,now()
+ 				,now()
+ 			)
+ 			
+ 	
+ 	</insert>
+ 	
+ 	<select id="selectLikeCount" resultType="int">
+ 		SELECT count(*)
+ 		FROM `like`
+ 		WHERE 
+ 			`feedId` = #{feedId}
+ 			 
+ 	</select>
+ 
+ </mapper>

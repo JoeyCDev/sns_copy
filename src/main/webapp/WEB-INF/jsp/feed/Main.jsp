@@ -67,13 +67,15 @@
 							</c:if>
 						</div>
 						<div class="feed-bottom ml-2 mr-2">
-							<div class="btn-container d-flex justify-content-between">
-								<div class="like-button-container"><button type="button" id="" class= "likeBtn btn"><i class="far fa-heart fa-2x"></i></button></div>
-								<div class="save-button-container"><button type="button" id="" class= "saveBtn btn"><i class="far fa-save fa-2x"></i></button></div>
-							</div>
+							<c:if test="${not empty userName }">
+								<div class="btn-container d-flex justify-content-between">
+									<div class="like-button-container"><button type="button" data-feed-id="${detailFeed.feed.id }" class="likeBtn btn"><i class="far fa-heart fa-2x"></i></button></div>
+									<div class="save-button-container"><button type="button" id="" class="saveBtn btn"><i class="far fa-save fa-2x"></i></button></div>
+								</div>
+							</c:if>
 							<div class="comment-container d-flex justify-content-start mt-2 ml-2">
 								<div class="horizontal-align">
-									<div class="like-count font-weight-bold text-left mb-2">좋아요 10개</div>
+									<div class="like-count font-weight-bold text-left mb-2">좋아요 ${detailFeed.likeCount }개</div>
 									<div class="comment-section d-flex justify-content-start">
 										<div class="horizontal-align">
 											<!-- 포스팅 content 표기 부분 -->
@@ -187,6 +189,31 @@
 				});
 				
 			});
+			
+			$(".likeBtn").on("click",function(){
+				
+				var feedId = $(this).data("feed-id");
+				
+				$.ajax({
+					
+					type:"get",
+					url:"/feed/like",
+					data:{"feedId":feedId},
+					success:function(data){
+						if(data.result=="success"){
+							location.reload();
+							$(this).addClass("btnToRed");
+						}else{
+							alert("좋아요 등록 에러");
+						}
+					},
+					error:function(e){
+						alert("error");
+					}
+				});
+				
+			});
+			
 		});
 		
 		

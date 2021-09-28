@@ -7,6 +7,7 @@ public class FeedDetail {
 	
 	private Feed feed;
 	private List<Comment> commentList;
+	private int likeCount;
 	
 	public Feed getFeed() {
 		return feed;
@@ -20,7 +21,12 @@ public class FeedDetail {
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
 	}
-	
+	public int getLikeCount() {
+		return likeCount;
+	}
+	public void setLikeCount(int likeCount) {
+		this.likeCount = likeCount;
+	}
 	
 	
 	

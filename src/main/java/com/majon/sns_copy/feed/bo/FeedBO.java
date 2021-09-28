@@ -11,6 +11,7 @@ import com.majon.sns_copy.common.FileManagerService;
 import com.majon.sns_copy.feed.comment.bo.CommentBO;
 import com.majon.sns_copy.feed.comment.model.Comment;
 import com.majon.sns_copy.feed.dao.FeedDAO;
+import com.majon.sns_copy.feed.like.bo.LikeBO;
 import com.majon.sns_copy.feed.model.Feed;
 import com.majon.sns_copy.feed.model.FeedDetail;
 
@@ -22,6 +23,9 @@ public class FeedBO {
 	
 	@Autowired
 	private CommentBO commentBO;
+	
+	@Autowired
+	private LikeBO likeBO;
 	
 	public int addPost(int userId, String userName, String content, MultipartFile file) {
 			
@@ -35,20 +39,22 @@ public class FeedBO {
 			
 			return feedDAO.insertPost(userId, userName, content, imagePath);
 		}
-	public List<FeedDetail> getPost(){
+	public List<FeedDetail> getFeed(){
 		
 		List<Feed> feedList = feedDAO.selectPost();
 		
 		List<FeedDetail> feedDetailList = new ArrayList<>();
 		
-		// feed 하나당 댓글 가져오기
+		// feed 하나당 댓글,좋아요 가져오기
 		for(Feed feed:feedList) {
 			// 해당하는 feed의 댓글 가져오기
 			List<Comment>commentList = commentBO.getCommentListByFeedId(feed.getId());
-			// feed 랑 댓글 매칭
+			// 해당하는 feed의 좋아요 갯수 가져오기
+			int likeCount = likeBO.countLike(feed.getId());
 			FeedDetail feedDetail = new FeedDetail();
 			feedDetail.setFeed(feed);
 			feedDetail.setCommentList(commentList);
+			feedDetail.setLikeCount(likeCount);
 			
 			feedDetailList.add(feedDetail);
 		}

@@ -18,8 +18,9 @@ public class CommentBO {
 		return commentDAO.insertComment(userId, feedId, userName, content);
 	}
 	
-	public List<Comment> getComment(){
-		return commentDAO.selectComment();
+	// postId 에 해당하는 댓글 리스트 가져오기
+	public List<Comment> getCommentListByFeedId(int feedId) {
+		return commentDAO.selectCommentListByFeedId(feedId);
 	}
 	
 }

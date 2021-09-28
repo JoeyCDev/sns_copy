@@ -49,27 +49,27 @@
 				</div>
 			</div>
 				</c:if>
-				<c:forEach var="printFeed" items="${printFeedList }" varStatus="status">
+				<c:forEach var="detailFeed" items="${detailFeedList }" varStatus="status">
 				<div class="feed-container border rounded p-3 text-center d-flex justify-content-center mt-5">
 					<div class="feed-elements">
 						<div class="feed-top d-flex justify-content-between align-items-center">
 							<div class="user-logo col-3">
 								<a href="#"><i class="far fa-user"></i></a>
-								<small class="ml-2"><c:out value="${printFeed.userName }"/></small>
+								<small class="ml-2"><c:out value="${detailFeed.feed.userName }"/></small>
 							</div>
 							<div class="more-menu col-3">
 								...
 							 </div>
 						</div>
 						<div class="feed-img mt-3 mb-3">
-							<c:if test="${not empty printFeed.imagePath }">
-								<img src="${printFeed.imagePath }" width="699px" height="600px"/>
+							<c:if test="${not empty detailFeed.feed.imagePath }">
+								<img src="${detailFeed.feed.imagePath }" width="699px" height="600px"/>
 							</c:if>
 						</div>
 						<div class="feed-bottom ml-2 mr-2">
 							<div class="btn-container d-flex justify-content-between">
-								<div class="like-button-container"><button type="button" id="likeBtn"><a href="#" class= "likeBtnLink"><i class="far fa-heart fa-2x"></i></a></button></div>
-								<div class="save-button-container"><button type="button" id="saveBtn"><a href="#" class= "saveBtnLink"><i class="far fa-save fa-2x"></i></a></button></div>
+								<div class="like-button-container"><button type="button" id="" class= "likeBtn btn"><i class="far fa-heart fa-2x"></i></button></div>
+								<div class="save-button-container"><button type="button" id="" class= "saveBtn btn"><i class="far fa-save fa-2x"></i></button></div>
 							</div>
 							<div class="comment-container d-flex justify-content-start mt-2 ml-2">
 								<div class="horizontal-align">
@@ -77,15 +77,13 @@
 									<div class="comment-section d-flex justify-content-start">
 										<div class="horizontal-align">
 											<!-- 포스팅 content 표기 부분 -->
-											<div class="comments d-flex"><div class="content-userId font-weight-bold mr-2"><c:out value="${printFeed.userName }"/></div><c:out value="${printFeed.content }"/></div>
-											<!-- comment 리스트 뽑기 -->
-												<c:forEach var="printComment" items="${printCommentList }" varStatus="status">
-													<c:if test="${printFeed.id eq printComment.feedId }">
-														<div class="comment d-flex"><div class="comment-userId font-weight-bold mr-2 mb-1"><c:out value="${printComment.userName }"/> </div><c:out value="${printComment.content }"/></div>
-													</c:if>
+											<div class="comments d-flex"><div class="content-userId font-weight-bold mr-2"><c:out value="${detailFeed.feed.userName }"/></div><c:out value="${detailFeed.feed.content }"/></div>
+												<!-- 댓글 표기 부분 -->
+												<c:forEach var="comment" items="${detailFeed.commentList }">
+													<div class="comment d-flex"><div class="comment-userId font-weight-bold mr-2 mb-1"><c:out value="${comment.userName }"/> </div><c:out value="${comment.content }"/></div>
 												</c:forEach>
 												<!-- 피드 생성 날짜 표기 -->
-												<div class="text-secondary"><fmt:formatDate value="${printFeed.createdAt }" pattern="yyyy/MM/dd HH시 mm분"/></div>
+												<div class="text-secondary"><fmt:formatDate value="${detailFeed.feed.createdAt }" pattern="yyyy/MM/dd HH시 mm분"/></div>
 										</div>
 									</div>
 								</div>
@@ -98,10 +96,10 @@
 								<a href="#" class="emojiLink"><i class="far fa-laugh fa-2x"></i></a>
 							</div>
 							<div class="comment-write-container col-8">
-								<input type="text" class="comment-write-section" id="commentInput-${printFeed.id }" placeholder="댓글 달기...">
+								<input type="text" class="comment-write-section" id="commentInput-${detailFeed.feed.id }" placeholder="댓글 달기...">
 							</div>
 							<div class="comment-postBtn-container col-2">
-								<button type="button" data-feed-id="${printFeed.id }" class="commentPostBtn btn btn-primary">게시</button>
+								<button type="button" data-feed-id="${detailFeed.feed.id }" class="commentPostBtn btn btn-primary">게시</button>
 							</div>
 						</div>
 						</c:if>

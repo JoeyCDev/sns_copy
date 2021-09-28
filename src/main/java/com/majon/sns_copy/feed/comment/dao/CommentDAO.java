@@ -16,7 +16,7 @@ public interface CommentDAO {
 			,@Param("userName")String userName
 			,@Param("content")String content);
 	
-	public List<Comment> selectComment();
+	public List<Comment> selectCommentListByFeedId(int feedId);
 }
 
 

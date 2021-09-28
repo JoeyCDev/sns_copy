@@ -25,7 +25,7 @@
  	
  	</insert>
  	
- 	<select id="selectPost" parameterType="map" resultType="com.majon.sns_copy.model.Feed">
+ 	<select id="selectPost" parameterType="map" resultType="com.majon.sns_copy.feed.model.Feed">
  		SELECT 
  			`id`
  			,`userId`

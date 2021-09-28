@@ -5,6 +5,20 @@
 	height: 1200px;
 	margin: auto;
 }
+#homeBtnHeader{
+	background:none;
+	border:none;
+}
+#likeBtnHeader{
+	background:none;
+	border:none;
+}
+.homeBtnHeaderLink{
+	color:inherit;
+}
+.likeBtnHeaderLink{
+	color:inherit;
+}
 hr{
 	border: 1px solid #d3d3d3;
 }
@@ -22,24 +36,15 @@ hr{
 .search-box:hover{
 	background-color:#d5d0ff;
 }
-#homeBtn{
+.homeBtn{
 	background:none;
 	border:none;
 }
-.homeBtnLink{
-	color:inherit;
-}
-.likeBtnLink{
-	color:inherit;
-}
-#likeBtn{
+.likeBtn{
 	background:none;
 	border:none;
 }
-.saveBtnLink{
-	color:inherit;
-}
-#saveBtn{
+.saveBtn{
 	background:none;
 	border:none;
 }

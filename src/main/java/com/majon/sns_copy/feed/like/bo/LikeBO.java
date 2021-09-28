@@ -1,12 +1,10 @@
 package com.majon.sns_copy.feed.like.bo;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.majon.sns_copy.feed.like.dao.LikeDAO;
-import com.majon.sns_copy.feed.like.model.Like;
+
 
 @Service
 public class LikeBO {
@@ -25,7 +23,8 @@ public class LikeBO {
 	}
 	
 	public boolean isLikedByfeedIdAndUserId(int feedId, int userId) {
-		if(likeDAO.selectLikeListByfeedIdAndUserId(feedId, userId)>=1) {
+		int count = likeDAO.selectLikeListByfeedIdAndUserId(feedId, userId);
+		if(count>=1) {
 			return true;
 		}else {
 			return false;

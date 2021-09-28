@@ -53,13 +53,13 @@ public class FeedBO {
 			// 해당하는 feed의 좋아요 갯수 가져오기
 			int likeCount = likeBO.countLike(feed.getId());
 			// 해당하는 feed와 로그인된 아이디를 가지고 좋아요가 있는 지 없는 지 확인
-			boolean isLiked = likeBO.isLikedByfeedIdAndUserId(feed.getId(),userId);
+			boolean liked = likeBO.isLikedByfeedIdAndUserId(feed.getId(),userId);
 			
 			FeedDetail feedDetail = new FeedDetail();
 			feedDetail.setFeed(feed);
 			feedDetail.setCommentList(commentList);
 			feedDetail.setLikeCount(likeCount);
-			feedDetail.setLiked(isLiked);
+			feedDetail.setLiked(liked);
 			
 			feedDetailList.add(feedDetail);
 		}

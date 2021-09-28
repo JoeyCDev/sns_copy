@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,10 +70,10 @@
 							<c:if test="${not empty userName }">
 								<div class="btn-container d-flex justify-content-between">
 										<!--로그인된 사용자가 해당 포스트에 좋아요를 눌렀을 경우 해당 포스트에해당하는 좋아요 버튼 색 변경  -->
-										<c:if test="${detailFeed.isLiked} ">
-											<div class="like-button-container"><button type="button" data-feed-id="${detailFeed.feed.id }" class="likeBtn btn-danger"><i class="far fa-heart fa-2x"></i></button></div>
+										<c:if test="${detailFeed.liked} ">
+											<div class="like-button-container"><button type="button" data-feed-id="liked+${detailFeed.feed.id }" class="likedLikeBtn btn-danger"><i class="far fa-heart fa-2x"></i></button></div>
 										</c:if>
-										<c:if test="${!detailFeed.isLiked} ">
+										<c:if test="${!detailFeed.liked} ">
 											<div class="like-button-container"><button type="button" data-feed-id="${detailFeed.feed.id }" class="likeBtn btn"><i class="far fa-heart fa-2x"></i></button></div>
 										</c:if>
 									<div class="save-button-container"><button type="button" id="" class="saveBtn btn"><i class="far fa-save fa-2x"></i></button></div>

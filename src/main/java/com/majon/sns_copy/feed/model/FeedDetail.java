@@ -9,7 +9,7 @@ public class FeedDetail {
 	private Feed feed;
 	private List<Comment> commentList;
 	private int likeCount;
-	private boolean isLiked;
+	private boolean liked;
 	
 	public Feed getFeed() {
 		return feed;
@@ -30,11 +30,12 @@ public class FeedDetail {
 		this.likeCount = likeCount;
 	}
 	public boolean isLiked() {
-		return isLiked;
+		return liked;
 	}
-	public void setLiked(boolean isLiked) {
-		this.isLiked = isLiked;
+	public void setLiked(boolean liked) {
+		this.liked = liked;
 	}
+	
 	
 	
 }

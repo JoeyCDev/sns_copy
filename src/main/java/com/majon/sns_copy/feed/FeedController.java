@@ -28,11 +28,13 @@ public class FeedController {
 		HttpSession session = request.getSession();
 		
 		int userId = 0;
+		//로그인 경우
 		if(session.getAttribute("userId")!=null) {
 			userId = (Integer)session.getAttribute("userId");
 			List<FeedDetail> detailFeedList = feedBO.getFeed(userId);
 			model.addAttribute("detailFeedList", detailFeedList);
 		}
+		//로그아웃 경우
 		if(userId==0) {
 			List<FeedDetail> detailFeedList = feedBO.getFeed(userId);
 			model.addAttribute("detailFeedList", detailFeedList);

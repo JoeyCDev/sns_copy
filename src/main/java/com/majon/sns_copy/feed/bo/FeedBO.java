@@ -12,6 +12,7 @@ import com.majon.sns_copy.feed.comment.bo.CommentBO;
 import com.majon.sns_copy.feed.comment.model.Comment;
 import com.majon.sns_copy.feed.dao.FeedDAO;
 import com.majon.sns_copy.feed.like.bo.LikeBO;
+import com.majon.sns_copy.feed.like.model.Like;
 import com.majon.sns_copy.feed.model.Feed;
 import com.majon.sns_copy.feed.model.FeedDetail;
 
@@ -51,10 +52,13 @@ public class FeedBO {
 			List<Comment>commentList = commentBO.getCommentListByFeedId(feed.getId());
 			// 해당하는 feed의 좋아요 갯수 가져오기
 			int likeCount = likeBO.countLike(feed.getId());
+			// 해당하는 feed의 좋아요를 누른 사람의 정보 가져오기
+			List<Like>likeList = likeBO.getLikeList(feed.getId());
 			FeedDetail feedDetail = new FeedDetail();
 			feedDetail.setFeed(feed);
 			feedDetail.setCommentList(commentList);
 			feedDetail.setLikeCount(likeCount);
+			feedDetail.setLikeList(likeList);
 			
 			feedDetailList.add(feedDetail);
 		}

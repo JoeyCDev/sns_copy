@@ -69,7 +69,15 @@
 						<div class="feed-bottom ml-2 mr-2">
 							<c:if test="${not empty userName }">
 								<div class="btn-container d-flex justify-content-between">
-									<div class="like-button-container"><button type="button" data-feed-id="${detailFeed.feed.id }" class="likeBtn btn"><i class="far fa-heart fa-2x"></i></button></div>
+									<c:forEach var="like" items="${detailFeed.likeList }">
+										<!--로그인된 사용자가 해당 포스트에 좋아요를 눌렀을 경우 해당 포스트에해당하는 좋아요 버튼 색 변경  -->
+										<c:if test="${userId eq like.userId } ">
+											<div class="like-button-container"><button type="button" data-feed-id="${detailFeed.feed.id }" class="likeBtn btn-danger"><i class="far fa-heart fa-2x"></i></button></div>
+										</c:if>
+										<c:if test="${userId ne like.userId }">
+											<div class="like-button-container"><button type="button" data-feed-id="${detailFeed.feed.id }" class="likeBtn btn"><i class="far fa-heart fa-2x"></i></button></div>
+										</c:if>
+									</c:forEach>
 									<div class="save-button-container"><button type="button" id="" class="saveBtn btn"><i class="far fa-save fa-2x"></i></button></div>
 								</div>
 							</c:if>
@@ -202,7 +210,6 @@
 					success:function(data){
 						if(data.result=="success"){
 							location.reload();
-							$(this).addClass("btnToRed");
 						}else{
 							alert("좋아요 등록 에러");
 						}

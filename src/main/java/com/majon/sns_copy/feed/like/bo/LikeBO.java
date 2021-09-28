@@ -1,9 +1,12 @@
 package com.majon.sns_copy.feed.like.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.majon.sns_copy.feed.like.dao.LikeDAO;
+import com.majon.sns_copy.feed.like.model.Like;
 
 @Service
 public class LikeBO {
@@ -19,6 +22,10 @@ public class LikeBO {
 	
 	public int countLike(int feedId) {
 		return likeDAO.selectLikeCount(feedId);
+	}
+	
+	public List<Like> getLikeList(int feedId) {
+		return likeDAO.selectLikeList(feedId);
 	}
 
 }

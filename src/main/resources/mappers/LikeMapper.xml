@@ -26,11 +26,31 @@
  	</insert>
  	
  	<select id="selectLikeCount" resultType="int">
- 		SELECT count(*)
- 		FROM `like`
+ 		SELECT 
+ 			count(*)
+ 		FROM 
+ 			`like`
  		WHERE 
  			`feedId` = #{feedId}
  			 
  	</select>
+ 	
+ 	<select id="selectLikeList" resultType="com.majon.sns_copy.feed.like.model.Like" parameterType="int">
+ 	
+ 		SELECT  
+ 			`id`
+	 		,`userId`
+	 		,`feedId`
+	 		,`userName`
+	 		,`createdAt`
+	 		,`updatedAt`
+ 		FROM
+ 			`like`
+ 		WHERE
+ 			`feedId` = #{feedId}
+ 
+ 	
+ 	</select>
+ 	
  
  </mapper>

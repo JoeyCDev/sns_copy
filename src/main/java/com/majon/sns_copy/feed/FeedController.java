@@ -2,6 +2,9 @@ package com.majon.sns_copy.feed;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,10 +22,13 @@ public class FeedController {
 	private FeedBO feedBO;
 	
 	@GetMapping("/main_view")
-	public String mainPage(Model model) {
+	public String mainPage(Model model,
+			HttpServletRequest request) {
 		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
 		
-		List<FeedDetail> detailFeedList = feedBO.getFeed();
+		List<FeedDetail> detailFeedList = feedBO.getFeed(userId);
 		
 		if(detailFeedList!=null) {
 			model.addAttribute("detailFeedList", detailFeedList);

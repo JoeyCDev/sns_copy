@@ -40,7 +40,7 @@ public class FeedBO {
 			
 			return feedDAO.insertPost(userId, userName, content, imagePath);
 		}
-	public List<FeedDetail> getFeed(){
+	public List<FeedDetail> getFeed(int userId){
 		
 		List<Feed> feedList = feedDAO.selectPost();
 		
@@ -52,13 +52,14 @@ public class FeedBO {
 			List<Comment>commentList = commentBO.getCommentListByFeedId(feed.getId());
 			// 해당하는 feed의 좋아요 갯수 가져오기
 			int likeCount = likeBO.countLike(feed.getId());
-			// 해당하는 feed의 좋아요를 누른 사람의 정보 가져오기
-			List<Like>likeList = likeBO.getLikeList(feed.getId());
+			// 해당하는 feed와 로그인된 아이디를 가지고 좋아요가 있는 지 없는 지 확인
+			boolean isLiked = likeBO.isLikedByfeedIdAndUserId(feed.getId(),userId);
+			
 			FeedDetail feedDetail = new FeedDetail();
 			feedDetail.setFeed(feed);
 			feedDetail.setCommentList(commentList);
 			feedDetail.setLikeCount(likeCount);
-			feedDetail.setLikeList(likeList);
+			feedDetail.setLiked(isLiked);
 			
 			feedDetailList.add(feedDetail);
 		}

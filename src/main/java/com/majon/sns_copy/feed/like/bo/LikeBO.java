@@ -24,8 +24,12 @@ public class LikeBO {
 		return likeDAO.selectLikeCount(feedId);
 	}
 	
-	public List<Like> getLikeList(int feedId) {
-		return likeDAO.selectLikeList(feedId);
+	public boolean isLikedByfeedIdAndUserId(int feedId, int userId) {
+		if(likeDAO.selectLikeListByfeedIdAndUserId(feedId, userId)>=1) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 }

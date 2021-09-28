@@ -35,19 +35,16 @@
  			 
  	</select>
  	
- 	<select id="selectLikeList" resultType="com.majon.sns_copy.feed.like.model.Like" parameterType="int">
+ 	<select id="selectLikeListByfeedIdAndUserId" resultType="int" parameterType="int">
  	
  		SELECT  
- 			`id`
-	 		,`userId`
-	 		,`feedId`
-	 		,`userName`
-	 		,`createdAt`
-	 		,`updatedAt`
+ 			count(*)
  		FROM
  			`like`
  		WHERE
  			`feedId` = #{feedId}
+ 		AND	
+ 			`userId` = #{userId}
  
  	
  	</select>

@@ -43,4 +43,26 @@ public class LikeRestController {
 		
 	}
 	
+	@GetMapping("/feed/delete")
+	public Map<String,String> deleteLike(
+			@RequestParam("feedId") int feedId
+			,HttpServletRequest request){
+		
+		HttpSession session = request.getSession();
+		
+		int userId = (Integer)session.getAttribute("userId");
+		
+		Map<String,String> resultMap = new HashMap<>();
+		
+		int count = likeBO.removeLike(feedId, userId);
+		
+		if(count==1) {
+			resultMap.put("result", "success");
+		}else {
+			resultMap.put("result", "fail");
+		}
+		
+		return resultMap;
+	}
+	
 }

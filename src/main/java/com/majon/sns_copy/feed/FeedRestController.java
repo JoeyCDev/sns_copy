@@ -35,7 +35,7 @@ public class FeedRestController {
 		String userName = (String) session.getAttribute("userName");
 		
 		
-		int count = feedBO.addPost(userId, userName, content, file);
+		int count = feedBO.addFeed(userId, userName, content, file);
 		
 		Map<String,String> resultMap = new HashMap<>();
 		

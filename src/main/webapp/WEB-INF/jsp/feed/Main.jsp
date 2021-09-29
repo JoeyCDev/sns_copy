@@ -71,7 +71,7 @@
 								<div class="btn-container d-flex justify-content-between">
 										<!--로그인된 사용자가 해당 포스트에 좋아요를 눌렀을 경우 해당 포스트에해당하는 좋아요 버튼 색 변경  -->
 										<c:if test="${detailFeed.liked }">
-											<div class="like-button-container"><button type="button" data-feed-id="liked+${detailFeed.feed.id }" class="likedLikeBtn btn"><i class="far fa-heart fa-2x"></i></button></div>
+											<div class="like-button-container"><button type="button" data-feed-id="${detailFeed.feed.id }" class="likedLikeBtn btn"><i class="far fa-heart fa-2x"></i></button></div>
 										</c:if>
 										<c:if test="${!detailFeed.liked }">
 											<div class="like-button-container"><button type="button" data-feed-id="${detailFeed.feed.id }" class="likeBtn btn"><i class="far fa-heart fa-2x"></i></button></div>
@@ -212,6 +212,30 @@
 							location.reload();
 						}else{
 							alert("좋아요 등록 에러");
+						}
+					},
+					error:function(e){
+						alert("error");
+					}
+				});
+				
+			});
+			
+			$(".likedLikeBtn").on("click",function(e){
+				
+				e.preventDefault();
+				
+				var feedId = $(this).data("feed-id");
+				
+				$.ajax({
+					type:"get",
+					url:"/feed/delete",
+					data:{"feedId":feedId},
+					success:function(data){
+						if(data.result=="success"){
+							location.reload();
+						}else{
+							"좋아요 취소 실패";
 						}
 					},
 					error:function(e){

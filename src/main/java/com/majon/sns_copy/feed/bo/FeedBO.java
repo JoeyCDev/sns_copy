@@ -28,7 +28,7 @@ public class FeedBO {
 	@Autowired
 	private LikeBO likeBO;
 	
-	public int addPost(int userId, String userName, String content, MultipartFile file) {
+	public int addFeed(int userId, String userName, String content, MultipartFile file) {
 			
 			String imagePath = null;
 			if(file != null) {

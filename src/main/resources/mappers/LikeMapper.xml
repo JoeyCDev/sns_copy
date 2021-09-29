@@ -49,5 +49,15 @@
  	
  	</select>
  	
+ 	<delete id="deleteLike" parameterType="int">
+ 	
+ 		DELETE FROM
+	 		`like`
+	 	WHERE
+ 			`feedId` = #{feedId}
+ 		AND	
+ 			`userId` = #{userId}
+ 	</delete>
+ 	
  
  </mapper>

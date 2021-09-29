@@ -14,4 +14,9 @@ public interface LikeDAO {
 	public int selectLikeCount(int feedId);
 	
 	public int selectLikeListByfeedIdAndUserId(@Param("feedId")int feedId, @Param("userId") int userId);
+	
+	public int deleteLike(
+			@Param("feedId")int feedId
+			,@Param("userId")int userID);
+	
 }

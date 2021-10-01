@@ -154,6 +154,7 @@
 					data:{"feedId":feedId},
 					success:function(data){
 						if(data.result=="success"){
+							alert("피드 삭제 성공");
 							location.reload();
 						}else{
 							alert("피드 삭제 실패");

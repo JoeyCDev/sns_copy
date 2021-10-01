@@ -43,7 +43,7 @@ public class LikeRestController {
 		
 	}
 	
-	@GetMapping("/feed/delete")
+	@GetMapping("/like/delete")
 	public Map<String,String> deleteLike(
 			@RequestParam("feedId") int feedId
 			,HttpServletRequest request){
@@ -56,10 +56,10 @@ public class LikeRestController {
 		
 		int count = likeBO.removeLike(feedId, userId);
 		
-		if(count==1) {
-			resultMap.put("result", "success");
-		}else {
+		if(count==0) {
 			resultMap.put("result", "fail");
+		}else {
+			resultMap.put("result", "success");
 		}
 		
 		return resultMap;

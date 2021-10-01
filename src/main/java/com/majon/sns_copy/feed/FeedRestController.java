@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,6 +48,28 @@ public class FeedRestController {
 		return resultMap;
 		
 	}
+	
+	@GetMapping("/delete")
+	public Map<String,String> delete(
+			@RequestParam("feedId")int feedId
+			,HttpServletRequest request){
+		
+		HttpSession session = request.getSession();
+		int userId = (Integer)session.getAttribute("userId");
+		
+		Map<String,String> resultMap = new HashMap<>();
+		
+		int count = feedBO.deleteFeed(feedId, userId);
+		
+		if(count == 0) {
+			resultMap.put("result", "fail");
+		} else {
+			resultMap.put("result", "success");
+		}
+		
+		return resultMap;
+	}
+	
 	
 	
 	

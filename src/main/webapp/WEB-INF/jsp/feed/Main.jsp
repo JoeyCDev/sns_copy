@@ -42,7 +42,8 @@
 				<div class="post-elements">
 					<h5 class="mb-3">게시글 올리기</h5>
 					<div class="textarea-container mb-3">
-						<input type="file" accept="image/*" class="ml-3 mb-3" id="fileInput">
+						<button type="button" id="imagePostBtn" class="btn mr-3 mb-2"><i class="far fa-image fa-3x"></i></button>
+						<input type="file" accept="image/*" class="ml-3 mb-3 d-none" id="fileInput">
 						<button type="button" id="postBtn" class="btn btn-primary mr-3 mb-3">게시</button>
 						<textarea class="feed-textarea form-control" id="feedContentInput" rows="10" placeholder="내용을 입력해주세요"></textarea>
 					</div>
@@ -53,13 +54,14 @@
 				<div class="feed-container border rounded p-3 text-center d-flex justify-content-center mt-5">
 					<div class="feed-elements">
 						<div class="feed-top d-flex justify-content-between align-items-center">
-							<div class="user-logo col-3">
+							<div class="user-logo col-2">
 								<a href="#"><i class="far fa-user"></i></a>
 								<small class="ml-2"><c:out value="${detailFeed.feed.userName }"/></small>
 							</div>
-							<div class="more-menu col-3">
-								...
-							 </div>
+							<!-- 더보기 -->
+							<div class="more-menu col-2">
+								<button type="button" data-feed-id="${detailFeed.feed.id }" class="btn moreMenuBtn" data-toggle="modal" data-target="#moreMenuModal"><i class="fas fa-ellipsis-h"></i></button>
+							</div>
 						</div>
 						<div class="feed-img mt-3 mb-3">
 							<c:if test="${not empty detailFeed.feed.imagePath }">
@@ -85,7 +87,7 @@
 									<div class="comment-section d-flex justify-content-start">
 										<div class="horizontal-align">
 											<!-- 포스팅 content 표기 부분 -->
-											<div class="comments d-flex"><div class="content-userId font-weight-bold mr-2"><c:out value="${detailFeed.feed.userName }"/></div><c:out value="${detailFeed.feed.content }"/></div>
+											<div class="comments d-flex"><div class="content-userId font-weight-bold mr-2 mb-1"><c:out value="${detailFeed.feed.userName }"/></div><c:out value="${detailFeed.feed.content }"/></div>
 												<!-- 댓글 표기 부분 -->
 												<c:forEach var="comment" items="${detailFeed.commentList }">
 													<div class="comment d-flex"><div class="comment-userId font-weight-bold mr-2 mb-1"><c:out value="${comment.userName }"/> </div><c:out value="${comment.content }"/></div>
@@ -120,8 +122,56 @@
 			
 	</div>
 	
+	<!-- Modal -->
+	<div class="modal fade" id="moreMenuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  		<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+      		<div class="modal-body text-center">
+        		<button type="button" class="deletePostBtn text-danger" id="feedDeleteBtn">삭제하기</button>
+      		</div>
+    		</div>
+  		</div>
+	</div>
+		
 	<script>
 		$(document).ready(function(){
+			
+			
+			$(".moreMenuBtn").on("click",function(e){
+				e.preventDefault();
+				var feedId = $(this).data("feed-id");
+				$("#feedDeleteBtn").data("feed-id", feedId);
+				
+			});
+			
+			$("#feedDeleteBtn").on("click",function(e){
+				e.preventDefault();
+				var feedId = $("#feedDeleteBtn").data("feed-id");
+
+				$.ajax({
+					type:"get",
+					url:"/feed/delete",
+					data:{"feedId":feedId},
+					success:function(data){
+						if(data.result=="success"){
+							location.reload();
+						}else{
+							alert("피드 삭제 실패");
+						}
+					},
+					error:function(e){
+						alert("error");
+					}
+				});
+			});
+			
+			$("#imagePostBtn").on("click",function(){
+				
+				$("#fileInput").click();
+				
+			});
+			
+			
 			$("#postBtn").on("click",function(){
 
 				var feedContent = $("#feedContentInput").val().trim();
@@ -229,7 +279,7 @@
 				
 				$.ajax({
 					type:"get",
-					url:"/feed/delete",
+					url:"/like/delete",
 					data:{"feedId":feedId},
 					success:function(data){
 						if(data.result=="success"){
@@ -244,6 +294,7 @@
 				});
 				
 			});
+			
 			
 		});
 		

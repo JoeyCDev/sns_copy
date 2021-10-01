@@ -17,6 +17,11 @@ public interface FeedDAO {
 			, @Param("content") String content
 			,@Param("imagePath") String imagePath);
 	
-	public List<Feed> selectPost();
+	public List<Feed> selectFeedList();
 
+	public Feed selectFeed(@Param("feedId") int feedId,@Param("userId") int userId);
+	
+	public int deleteFeed(@Param("feedId") int feedId, @Param("userId")int userId);
+	
+	
 }

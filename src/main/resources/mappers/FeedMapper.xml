@@ -25,7 +25,7 @@
  	
  	</insert>
  	
- 	<select id="selectPost" parameterType="map" resultType="com.majon.sns_copy.feed.model.Feed">
+ 	<select id="selectFeedList" parameterType="map" resultType="com.majon.sns_copy.feed.model.Feed">
  		SELECT 
  			`id`
  			,`userId`
@@ -39,5 +39,31 @@
  		ORDER BY
  			`id` DESC;
  	</select>
+ 	
+ 	<select id="selectFeed" parameterType="map" resultType="com.majon.sns_copy.feed.model.Feed">
+ 		SELECT 
+ 			`id`
+ 			,`userId`
+ 			,`userName`
+ 			,`content`
+ 			,`imagePath`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`feed`
+ 		WHERE 
+ 			`id`= #{feedId}
+ 		AND
+ 			`userId` = #{userId}
+ 	</select>
+ 	
+ 	<delete id="deleteFeed" parameterType="int">
+ 		DELETE FROM
+ 			`feed`
+ 		WHERE
+ 			`id` = #{feedId}
+ 		AND
+ 			`userId` = #{userId}
+ 	</delete>
  	
  </mapper>

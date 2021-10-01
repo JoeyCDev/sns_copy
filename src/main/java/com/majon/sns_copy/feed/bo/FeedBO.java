@@ -40,9 +40,9 @@ public class FeedBO {
 			
 			return feedDAO.insertPost(userId, userName, content, imagePath);
 		}
-	public List<FeedDetail> getFeed(int userId){
+	public List<FeedDetail> getFeedList(int userId){
 		
-		List<Feed> feedList = feedDAO.selectPost();
+		List<Feed> feedList = feedDAO.selectFeedList();
 		
 		List<FeedDetail> feedDetailList = new ArrayList<>();
 		
@@ -65,6 +65,24 @@ public class FeedBO {
 		}
 		
 		return feedDetailList;
+		
+	}
+	
+	public Feed getFeed(int feedId, int userId) {
+		return feedDAO.selectFeed(feedId, userId);
+		
+	}
+	
+	public int deleteFeed(int feedId, int userId) {
+		
+		Feed feed = this.getFeed(feedId, userId);
+		if(feed.getImagePath()!=null) {
+			FileManagerService.removeFile(feed.getImagePath());	
+		}
+		
+		likeBO.removeLike(feedId, userId);
+		
+		return feedDAO.deleteFeed(feedId, userId);
 		
 	}
 	

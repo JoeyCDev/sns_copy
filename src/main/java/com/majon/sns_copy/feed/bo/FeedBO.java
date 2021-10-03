@@ -77,15 +77,12 @@ public class FeedBO {
 		
 		Feed feed = this.getFeed(feedId, userId);
 		
-		likeBO.removeLike(feedId, userId);
-		if(feed!=null) {
 			if(feed.getImagePath()!=null) {
 				FileManagerService.removeFile(feed.getImagePath());	
 			}
+			likeBO.removeLikeByFeedId(feedId);
+			commentBO.removeCommentByFeedId(feedId);
 			return feedDAO.deleteFeed(feedId, userId);
-		}else {
-			return 0;
-		}
 	}
 	
 	

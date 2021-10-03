@@ -49,14 +49,23 @@
  	
  	</select>
  	
- 	<delete id="deleteLike" parameterType="int">
+ 	<delete id ="deleteLike" parameterType="int">
+ 	
+ 		DELETE FROM
+ 			`like`
+ 		WHERE
+ 			`feedId` = #{feedId}
+ 			AND
+ 			`userID` = #{userId}
+ 	
+ 	</delete>
+ 	
+ 	<delete id="deleteLikeByFeedId" parameterType="int">
  	
  		DELETE FROM
 	 		`like`
 	 	WHERE
  			`feedId` = #{feedId}
- 		AND	
- 			`userId` = #{userId}
  	</delete>
  	
  

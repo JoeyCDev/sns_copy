@@ -34,5 +34,11 @@ public class LikeBO {
 	public int removeLike(int feedId, int userId) {
 		return likeDAO.deleteLike(feedId, userId);
 	}
+	
+	public int removeLikeByFeedId(int feedId) {
+		
+		return likeDAO.deleteLikeByFeedId(feedId);
+		
+	}
 
 }

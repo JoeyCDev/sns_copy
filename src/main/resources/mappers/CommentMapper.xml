@@ -41,6 +41,13 @@
 	 		ORDER BY
 	 			`id` DESC;;
 	 	</select>
+	 	
+	 	<delete id="deleteCommentByFeedId" parameterType="int">
+	 	DELETE FROM
+	 		`comment`
+	 	WHERE 
+	 		`feedId` = #{feedId}
+	 	</delete>
 	 
 </mapper>
 	

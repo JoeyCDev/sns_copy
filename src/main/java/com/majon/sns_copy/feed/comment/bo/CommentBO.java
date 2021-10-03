@@ -23,4 +23,8 @@ public class CommentBO {
 		return commentDAO.selectCommentListByFeedId(feedId);
 	}
 	
+	public int removeCommentByFeedId(int feedId) {
+		return commentDAO.deleteCommentByFeedId(feedId);
+	}
+	
 }

@@ -17,6 +17,8 @@ public interface CommentDAO {
 			,@Param("content")String content);
 	
 	public List<Comment> selectCommentListByFeedId(int feedId);
+	
+	public int deleteCommentByFeedId(@Param("feedId")int feedId);
 }
 
 

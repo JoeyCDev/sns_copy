@@ -59,9 +59,11 @@
 								<small class="ml-2"><c:out value="${detailFeed.feed.userName }"/></small>
 							</div>
 							<!-- 더보기 -->
-							<div class="more-menu col-2">
-								<button type="button" data-feed-id="${detailFeed.feed.id }" class="btn moreMenuBtn" data-toggle="modal" data-target="#moreMenuModal"><i class="fas fa-ellipsis-h"></i></button>
-							</div>
+							<c:if test="${detailFeed.feed.userId eq userId }">
+								<div class="more-menu col-2">
+									<button type="button" data-feed-id="${detailFeed.feed.id }" class="btn moreMenuBtn" data-toggle="modal" data-target="#moreMenuModal"><i class="fas fa-ellipsis-h"></i></button>
+								</div>
+							</c:if>
 						</div>
 						<div class="feed-img mt-3 mb-3">
 							<c:if test="${not empty detailFeed.feed.imagePath }">

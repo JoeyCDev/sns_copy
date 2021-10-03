@@ -19,4 +19,6 @@ public interface LikeDAO {
 			@Param("feedId")int feedId
 			,@Param("userId")int userID);
 	
+	public int deleteLikeByFeedId(@Param("feedId")int feedId);
+	
 }

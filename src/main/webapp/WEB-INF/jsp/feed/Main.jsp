@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 페이지</title>
+<title>Monstagram</title>
 <!-- bootstrap CDN link -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
-<%-- AJAX를 사용하려면 더 많은 함수가 있는 js를 포함해야 한다. --%>
+<%-- AJAX js --%>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	crossorigin="anonymous"></script>
@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-<!-- styleshet -->
+<!-- stylesheet -->
 <link rel="stylesheet" href="/static/css/style.css" type="text/css">
 
 <!-- Font Awesome -->
@@ -104,11 +104,8 @@
 						<c:if test="${not empty userName }">
 						<hr>
 						<div class="comment-writing-container d-flex align-items-center justify-content-between">
-							<div class="emoji-container col-2">
-								<a href="#" class="emojiLink"><i class="far fa-laugh fa-2x"></i></a>
-							</div>
-							<div class="comment-write-container col-8">
-								<input type="text" class="comment-write-section" id="commentInput-${detailFeed.feed.id }" placeholder="댓글 달기...">
+							<div class="comment-write-container col-8 ml-5">
+								<input type="text" class="comment-write-section" id="commentInput-${detailFeed.feed.id }" placeholder="댓글 달기 ...">
 							</div>
 							<div class="comment-postBtn-container col-2">
 								<button type="button" data-feed-id="${detailFeed.feed.id }" class="commentPostBtn btn btn-primary">게시</button>

@@ -11,5 +11,5 @@ https://docs.google.com/spreadsheets/d/1cQf42McszJjMSZQvZmZEMQ77QZcAwLdHsKkZ9EYb
 ### 주요기능 :nut_and_bolt:
 - 회원가입
     - package: https://github.com/joseph58080/sns_copy/tree/master/src/main/java/com/majon/sns_copy/user
-    - view:/webapp/WEB-INF/jsp/*
+    - view:https://github.com/joseph58080/sns_copy/blob/master/src/main/webapp/WEB-INF/jsp/user/signIn.jsp
     - 

@@ -13,3 +13,4 @@ https://docs.google.com/spreadsheets/d/1cQf42McszJjMSZQvZmZEMQ77QZcAwLdHsKkZ9EYb
     - package: https://github.com/joseph58080/sns_copy/tree/master/src/main/java/com/majon/sns_copy/user
     - view:https://github.com/joseph58080/sns_copy/blob/master/src/main/webapp/WEB-INF/jsp/user/signIn.jsp
     - 
+![sign](https://user-images.githubusercontent.com/55569244/136691765-bdc97761-cc82-4cb9-aed0-5c90cbf09725.gif)

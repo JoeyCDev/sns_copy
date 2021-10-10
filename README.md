@@ -15,7 +15,7 @@ https://docs.google.com/spreadsheets/d/1cQf42McszJjMSZQvZmZEMQ77QZcAwLdHsKkZ9EYb
 - 로그인
     - package: https://github.com/joseph58080/sns_copy/tree/master/src/main/java/com/majon/sns_copy/user
     - view: https://github.com/joseph58080/sns_copy/blob/master/src/main/webapp/WEB-INF/jsp/user/signUp.jsp
-- 글쓰기/삭제 기능 및 메인화면
+- 글쓰기 기능 및 메인화면
     - package: https://github.com/joseph58080/sns_copy/tree/master/src/main/java/com/majon/sns_copy/feed
     - view: https://github.com/joseph58080/sns_copy/blob/master/src/main/webapp/WEB-INF/jsp/feed/Main.jsp
 - 댓글
@@ -26,3 +26,6 @@ https://docs.google.com/spreadsheets/d/1cQf42McszJjMSZQvZmZEMQ77QZcAwLdHsKkZ9EYb
     - view: https://github.com/joseph58080/sns_copy/blob/master/src/main/webapp/WEB-INF/jsp/feed/Main.jsp
 ### 데모 :video_camera:
 :star: 회원가입/로그인![sign](https://user-images.githubusercontent.com/55569244/136692528-fc18ad34-cc51-4036-b995-d34f187135f9.gif)
+:star: 글쓰기/피드삭제/로그아웃/메인화면![feed_main](https://user-images.githubusercontent.com/55569244/136692797-00db7e21-3304-4f34-bff4-916b7a88fc10.gif)
+:star: 댓글 쓰기![Comment](https://user-images.githubusercontent.com/55569244/136692816-66fea2d8-8619-4cce-8df6-c9e47e7c7efb.gif)
+:star: 좋아요 기능![Like](https://user-images.githubusercontent.com/55569244/136692826-4ddd3dd0-2036-48f3-b14c-b049e4c6a07f.gif)

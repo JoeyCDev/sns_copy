@@ -10,6 +10,6 @@ https://ovenapp.io/project/1QwUYCcphI3CotUBZLF0ZGjWplyYrAtB#CQXWg
 https://docs.google.com/spreadsheets/d/1cQf42McszJjMSZQvZmZEMQ77QZcAwLdHsKkZ9EYbCdw/edit#gid=0
 ### 주요기능 :nut_and_bolt:
 - 회원가입
-    - package: com.majon.sns_copy.user.*
+    - package: https://github.com/joseph58080/sns_copy/tree/master/src/main/java/com/majon/sns_copy/user
     - view:/webapp/WEB-INF/jsp/*
     - 

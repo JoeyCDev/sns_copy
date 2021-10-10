@@ -11,6 +11,18 @@ https://docs.google.com/spreadsheets/d/1cQf42McszJjMSZQvZmZEMQ77QZcAwLdHsKkZ9EYb
 ### 주요기능 :nut_and_bolt:
 - 회원가입
     - package: https://github.com/joseph58080/sns_copy/tree/master/src/main/java/com/majon/sns_copy/user
-    - view:https://github.com/joseph58080/sns_copy/blob/master/src/main/webapp/WEB-INF/jsp/user/signIn.jsp
-    - 
-![sign](https://user-images.githubusercontent.com/55569244/136691765-bdc97761-cc82-4cb9-aed0-5c90cbf09725.gif)
+    - view: https://github.com/joseph58080/sns_copy/blob/master/src/main/webapp/WEB-INF/jsp/user/signIn.jsp
+- 로그인
+    - package: https://github.com/joseph58080/sns_copy/tree/master/src/main/java/com/majon/sns_copy/user
+    - view: https://github.com/joseph58080/sns_copy/blob/master/src/main/webapp/WEB-INF/jsp/user/signUp.jsp
+- 글쓰기/삭제 기능 및 메인화면
+    - package: https://github.com/joseph58080/sns_copy/tree/master/src/main/java/com/majon/sns_copy/feed
+    - view: https://github.com/joseph58080/sns_copy/blob/master/src/main/webapp/WEB-INF/jsp/feed/Main.jsp
+- 댓글
+    - package: https://github.com/joseph58080/sns_copy/tree/master/src/main/java/com/majon/sns_copy/feed/comment
+    - view: https://github.com/joseph58080/sns_copy/blob/master/src/main/webapp/WEB-INF/jsp/feed/Main.jsp
+- 좋아요
+    - package: https://github.com/joseph58080/sns_copy/tree/master/src/main/java/com/majon/sns_copy/feed/like
+    - view: https://github.com/joseph58080/sns_copy/blob/master/src/main/webapp/WEB-INF/jsp/feed/Main.jsp
+### 데모 :video_camera:
+:star: 회원가입/로그인![sign](https://user-images.githubusercontent.com/55569244/136692528-fc18ad34-cc51-4036-b995-d34f187135f9.gif)

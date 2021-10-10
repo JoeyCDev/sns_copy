@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.majon.sns_copy.feed.dao.FeedDAO">
+ 
+ 	<insert id="insertPost" parameterType="map">
+ 		INSERT INTO `feed`
+ 		(
+ 			`userId`
+ 			,`userName`
+ 			,`content`
+ 			,`imagePath`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		)VALUES(
+ 			#{userId}
+ 			,#{userName}
+ 			,#{content}
+ 			,#{imagePath}
+ 			,now()
+ 			,now()
+ 		)
+ 	
+ 	</insert>
+ 	
+ 	<select id="selectFeedList" parameterType="map" resultType="com.majon.sns_copy.feed.model.Feed">
+ 		SELECT 
+ 			`id`
+ 			,`userId`
+ 			,`userName`
+ 			,`content`
+ 			,`imagePath`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`feed`
+ 		ORDER BY
+ 			`id` DESC;
+ 	</select>
+ 	
+ 	<select id="selectFeed" parameterType="map" resultType="com.majon.sns_copy.feed.model.Feed">
+ 		SELECT 
+ 			`id`
+ 			,`userId`
+ 			,`userName`
+ 			,`content`
+ 			,`imagePath`
+ 			,`createdAt`
+ 			,`updatedAt`
+ 		FROM
+ 			`feed`
+ 		WHERE 
+ 			`id`= #{feedId}
+ 		AND
+ 			`userId` = #{userId}
+ 	</select>
+ 	
+ 	<delete id="deleteFeed" parameterType="int">
+ 		DELETE FROM
+ 			`feed`
+ 		WHERE
+ 			`id` = #{feedId}
+ 		AND
+ 			`userId` = #{userId}
+ 	</delete>
+ 	
+ </mapper>

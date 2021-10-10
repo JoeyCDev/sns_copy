@@ -1,0 +1,161 @@
+@charset "UTF-8";
+
+
+#wrap{
+	height: 1200px;
+	margin: auto;
+}
+#homeBtnHeader{
+	background:none;
+	border:none;
+}
+#likeBtnHeader{
+	background:none;
+	border:none;
+}
+.homeBtnHeaderLink{
+	color:inherit;
+}
+.likeBtnHeaderLink{
+	color:inherit;
+}
+hr{
+	border: 1px solid #d3d3d3;
+}
+.search-box-container{
+	position:relative;
+}
+.search-icon{
+	position:absolute;
+	left:150px;
+}
+.search-box{
+	width:400px;
+	background-color:#d3d3d3;
+}
+.search-box:hover{
+	background-color:#d5d0ff;
+}
+.homeBtn{
+	background:none;
+	border:none;
+}
+.moreMenuBtn{
+	background:none;
+	border:none;
+}
+.deletePostBtn{
+	background:none;
+	border:none;
+}
+.likeBtn{
+	background:none;
+	border:none;
+}
+.likedLikeBtn{
+	color:red;
+	background:none;
+	border:none;
+}
+.saveBtn{
+	background:none;
+	border:none;
+}
+
+.main-section{
+	height:1000px;
+	width:1000px;
+}
+.img-container{
+	width:500px;	
+}
+
+.register-img{
+	position:absolute;
+	left:400px;
+}
+
+.signin-container{
+	width:500px;
+}
+
+.signin-form-box{
+	height:450px;
+}
+
+.signin-form-box-elements{
+	width:500px;
+}
+
+.signup-link-box{
+	height:150px;
+}
+
+.app-store-btn{
+	width:200px;
+	height:60px;
+}
+
+.google-play-btn{
+	width:200px;
+	height:60px;
+}
+
+.signup-form-box{
+	height:600px;
+}
+
+.signin-link-box{
+	height:150px;
+}
+
+.id-check-container{
+	height:42px;
+}
+.id-input-box{
+	height:38px;
+}
+
+#isDuplicate-btn{
+	position:relative;
+	left:15px;
+	height:38px;
+}
+
+.post-section-container{
+	width:700px;
+	border-radius:25%;
+	
+}
+
+.textarea-container{
+	position:relative;
+	width:500px;
+}
+.textarea-container > #imagePostBtn{
+	position:absolute;
+	bottom:0;
+	left:0;
+	border:none;
+	background:none;
+}
+
+.textarea-container > #postBtn{
+	position:absolute;
+	bottom:0;
+	right:0;
+}
+
+.feed-container{
+	width:700px;
+}
+.feed-elements{
+	width:700px;
+}
+.comment-section{
+	left:0;
+}
+.comment-write-section{
+	border:none;
+	width:500px;
+}

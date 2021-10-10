@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.majon.sns_copy.feed.comment.dao.CommentDAO">
+
+	<insert id="insertComment" parameterType="map">
+	 		INSERT INTO `comment`
+	 		(
+	 			`userId`
+	 			,`feedId`
+	 			,`userName`
+	 			,`content`
+	 			,`createdAt`
+	 			,`updatedAt`
+	 		)VALUES(
+	 			#{userId}
+	 			,#{feedId}
+	 			,#{userName}
+	 			,#{content}
+	 			,now()
+	 			,now()
+	 		)
+	 	</insert>
+	 
+	 	<select id="selectCommentListByFeedId" parameterType="int" resultType="com.majon.sns_copy.feed.comment.model.Comment">
+	 		SELECT 
+	 			`id`
+	 			,`userId`
+	 			,`feedId`
+	 			,`userName`
+	 			,`content`
+	 			,`emoji`
+	 			,`createdAt`
+	 			,`updatedAt`
+	 		FROM
+	 			`comment`
+	 		WHERE 
+	 			`feedId` = #{feedID}
+	 		ORDER BY
+	 			`id` DESC;;
+	 	</select>
+	 	
+	 	<delete id="deleteCommentByFeedId" parameterType="int">
+	 	DELETE FROM
+	 		`comment`
+	 	WHERE 
+	 		`feedId` = #{feedId}
+	 	</delete>
+	 
+</mapper>
+	

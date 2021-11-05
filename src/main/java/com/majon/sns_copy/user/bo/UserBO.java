@@ -7,8 +7,6 @@ import com.majon.sns_copy.common.EncryptUtils;
 import com.majon.sns_copy.user.dao.UserDAO;
 import com.majon.sns_copy.user.model.User;
 
-
-
 @Service
 public class UserBO {
 

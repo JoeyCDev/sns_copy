@@ -6,7 +6,7 @@ spring:
       suffix: .jsp
   datasource:    
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/sns_copy?serverTimezone=UTC&characterEncoding=UTF-8    
+    url: jdbc:mysql://localhost:3306/my_protein_care?serverTimezone=UTC&characterEncoding=UTF-8    
     username: root
     password: vpfkfl68   
  
